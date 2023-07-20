@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="add_new_game_page.php" method="post">
+    <div class="container">
+        <h1>New game</h1>
+        <hr>
+        <label for="gameName"><b>Name of the game</b></label>
+        <input id="gameName" type="text" name="gameName">
+        <br>
+
+        <label for="platforms"><b>Platforms</b></label>
+        <input id="platforms" type="text" name="platforms">
+        <br>
+
+        <label for="gameGenres"><b>Genres in game</b></label>
+        <input id="gameGenres" type="text" name="gameGenres">
+        <br>
+
+        <label for="minPrice"><b>Minimal price</b></label>
+        <input id="minPrice" type="number" name="minPrice">
+        <br>
+
+        <label for="maxPrice"><b>Maximal price</b></label>
+        <input id="maxPrice" type="number" name="maxPrice">
+        <br>
+
+        <label style="vertical-align:middle" for="gameDescription"><b>Description</b></label>
+        <textarea style="vertical-align:middle; width: 40%" id="gameDescription" name="gameDescription" cols="40"
+                  rows="5"></textarea>
+
+        <hr>
+        <button type="submit" class="addNewGameButton"><strong>Add new game</strong></button>
+    </div>
+</form>
+
+</body>
+</html>

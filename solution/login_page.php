@@ -16,4 +16,8 @@ if ($req->num_rows > 0) {
     header("Location: http://localhost:63342/solution/solution/main_page.html");
 }
 
+session_start();
+$_SESSION["userEmail"] = $email;
+$_SESSION["userPassword"] = $pwd;
+
 ?>
