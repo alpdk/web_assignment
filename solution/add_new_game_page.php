@@ -1,26 +1,22 @@
 <?php
 require "connection.php";
 $gameName = $_POST["gameName"];
+$picture = $_POST["picture"];
 $platforms = $_POST["platforms"];
 $gameGenres = $_POST["gameGenres"];
-$minPrice = $_POST["minPrice"];
-$maxPrice = $_POST["maxPrice"];
+$price = $_POST["price"];
 $gameDescription = $_POST["gameDescription"];
 
-$emailSTR = mysqli_real_escape_string($con, $email);
-$pwdSTR = mysqli_real_escape_string($con, $pwd);
-$confirmSTR = mysqli_real_escape_string($con, $confirm);
-
 $gameNameSTR = mysqli_real_escape_string($con, $gameName);
+$pictureSTR = mysqli_real_escape_string($con, $picture);
 $platformsSTR = mysqli_real_escape_string($con, $platforms);
 $gameGenresSTR = mysqli_real_escape_string($con, $gameGenres);
-$minPriceNUM = $minPrice;
-$maxPriceNUM = $maxPrice;
+$priceNUM = $price;
 $gameDescriptionSTR = mysqli_real_escape_string($con, $gameDescription);
 
-$request = "INSERT INTO `game` (name, platforms, genres, min_price, max_price, description) VALUES ('$gameNameSTR', '$platformsSTR', '$gameGenresSTR', '$minPriceNUM', '$maxPriceNUM', '$gameDescriptionSTR')";
+$request = "INSERT INTO `game` (name, picture, platforms, genres, price, description) VALUES ('$gameNameSTR', '$pictureSTR', '$platformsSTR', '$gameGenresSTR', '$priceNUM', '$gameDescriptionSTR')";
 
 $req = mysqli_query($con, $request);
 
-header("Location: http://localhost:63342/solution/solution/main_page.html");
+header("Location: http://localhost:63342/solution/solution/main_page.php");
 ?>

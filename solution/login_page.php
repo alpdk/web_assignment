@@ -12,12 +12,13 @@ $query = "SELECT * FROM `user`
 $req = mysqli_query($con, $query);
 
 if ($req->num_rows > 0) {
-// output data of each row
-    header("Location: http://localhost:63342/solution/solution/main_page.html");
-}
+    session_start();
+    $_SESSION["userEmail"] = $email;
+    $_SESSION["userPassword"] = $pwd;
 
-session_start();
-$_SESSION["userEmail"] = $email;
-$_SESSION["userPassword"] = $pwd;
+    header("Location: http://localhost:63342/solution/solution/main_page.php?platforms=&genres=&minPrice=0&&maxPrice=99999");
+} else {
+    header("Location: http://localhost:63342/solution/solution/login_page.html");
+}
 
 ?>
