@@ -61,13 +61,13 @@
                             $game_genres = $row["genres"];
                             $game_platforms = $row["platforms"];
 
-                            if ((!str_contains(strtoupper($game_genres), strtoupper($checkGenres) AND !empty($checkGenres)))
-                                OR (!str_contains(strtoupper($game_platforms), strtoupper($checkPlatforms))  AND !empty($checkPlatforms))) {
+                            if (!str_contains(strtoupper($game_genres), strtoupper($checkGenres))
+                                or (!str_contains(strtoupper($game_platforms), strtoupper($checkPlatforms)))) {
                                 continue;
                             }
 
                             $game_id = $row["id"];
-                            $game_picture = $row["picture"];?>
+                            $game_picture = $row["picture"]; ?>
                             <div>
                                 <?php
                                 echo "<figure><img width='200' height='200' src='$game_picture'/></figure>";
@@ -76,7 +76,7 @@
                             </div>
                             <script>
                                 function saveId(id) {
-                                    window.location = "game_page.php?id="+id
+                                    window.location = "game_page.php?id=" + id
                                 }
                             </script>
                         <?php } ?>
