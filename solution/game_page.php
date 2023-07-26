@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="normalize.css">
 </head>
 <body>
-
-<table style="width:100%">
+<?php include("navigation.php") ?>
+<div class="game-page">
     <?php
     require "connection.php";
 
@@ -25,19 +27,22 @@
     $genres = $row["genres"];
     $desc = $row["description"];
 
-    echo "<tr>";
-    echo "<span>$name</span> <br>";
-    echo "<img src=\"$picture\" />";
-    echo "</figure>";
-    echo "</tr> <br>";
-    echo "<tr>";
-    echo "<span>Platforms: $plat</span> <br>";
-    echo "<span>Price: $price</span> <br>";
-    echo "<span>Genres: $genres</span> <br>";
-    echo "<span>Description: $desc</span> <br>";
-    echo "</tr>";
+    echo "<div class='game-container'><img src=\"$picture\" /></div>";
+    echo "<div class='game-summary'>";
+    echo "<p>$plat</p>";
+    echo "<p>$price\$</p>";
+    echo "<p>$genres</p>";
+    echo "</div>";
+    echo "<div class='game-description'><p>$desc</p></div>";
     ?>
-</table>
+</div>
+<script defer>
+    function setBackground(elem) {
+        const url = elem.getElementsByTagName("img")[0].src
+        elem.style.backgroundImage = "url(\"" + url + "\")"
+    }
 
+    document.querySelectorAll(".game-container").forEach(setBackground)
+</script>
 </body>
 </html>

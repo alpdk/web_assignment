@@ -10,15 +10,16 @@ $query = "SELECT * FROM `user`
               WHERE email = '$emailSTR' AND password='$pwdSTR'";
 
 $req = mysqli_query($con, $query);
+$result = mysqli_fetch_assoc($req);
 
 if ($req->num_rows > 0) {
     session_start();
+    $_SESSION["userId"] = $result["id"];
     $_SESSION["userEmail"] = $email;
-    $_SESSION["userPassword"] = $pwd;
 
-    header("Location: http://localhost:63342/solution/solution/main_page.php?platforms=&genres=&minPrice=0&&maxPrice=99999");
+    header("Location: main_page.php");
 } else {
-    header("Location: http://localhost:63342/solution/solution/login_page.html");
+    header("Location: login_page.html");
 }
 
 ?>

@@ -2,23 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>
+        <?php
+            session_start();
+            $user_id = $_SESSION["userId"];
+            echo "$user_id's profile";
+        ?>
+    </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="normalize.css">
 </head>
 <body>
-
-<table style="width:100%">
-    <tr>
-        <td style="width:20%; vertical-align:top">
-            <img width="200" height="200" id="image" src="user_picture.jpg" />
-        </td>
-        <td style="width:80%; vertical-align:top">
-            <?php
-                session_start();
-                echo "id: " . $_SESSION["id"]. "<br>email: " . $_SESSION["email"]. "<br>";
-            ?>
-        </td>
-    </tr>
-</table>
+<?php include("navigation.php") ?>
+<div class="profile-container">
+    <img id="profile_picture" src="user_picture.jpg" alt="profile picture"/>
+    <div class="profile-info">
+        <?php
+            $user_email = $_SESSION["userEmail"];
+            echo "<h1>$user_id</h1>";
+            echo "<p>$user_email</p>";
+        ?>
+    </div>
+</div>
 
 </body>
 </html>

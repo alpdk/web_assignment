@@ -1,22 +1,37 @@
-<?php
-require "connection.php";
-$gameName = $_POST["gameName"];
-$picture = $_POST["picture"];
-$platforms = $_POST["platforms"];
-$gameGenres = $_POST["gameGenres"];
-$price = $_POST["price"];
-$gameDescription = $_POST["gameDescription"];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="normalize.css">
+</head>
+<body>
+<?php include("navigation.php") ?>
+<div  class="form-page add-game">
+<form action="add_new_game_page_backend.php" method="post" class="credentials-form main">
+    <h1>new game</h1>
+    <div class="credentials-container">
+        <label for="gameName">name of the game</label>
+        <input id="gameName" type="text" name="gameName">
 
-$gameNameSTR = mysqli_real_escape_string($con, $gameName);
-$pictureSTR = mysqli_real_escape_string($con, $picture);
-$platformsSTR = mysqli_real_escape_string($con, $platforms);
-$gameGenresSTR = mysqli_real_escape_string($con, $gameGenres);
-$priceNUM = $price;
-$gameDescriptionSTR = mysqli_real_escape_string($con, $gameDescription);
+        <label for="picture">picture</label>
+        <input id="picture" type="text" name="picture">
 
-$request = "INSERT INTO `game` (name, picture, platforms, genres, price, description) VALUES ('$gameNameSTR', '$pictureSTR', '$platformsSTR', '$gameGenresSTR', '$priceNUM', '$gameDescriptionSTR')";
+        <label for="platforms">platforms</label>
+        <input id="platforms" type="text" name="platforms">
 
-$req = mysqli_query($con, $request);
+        <label for="gameGenres">genres in game</label>
+        <input id="gameGenres" type="text" name="gameGenres">
 
-header("Location: http://localhost:63342/solution/solution/main_page.php");
-?>
+        <label for="price">price</label>
+        <input id="price" type="number" name="price">
+
+        <label for="gameDescription">Description</label>
+        <textarea id="gameDescription" name="gameDescription"></textarea>
+    </div>
+    <button type="submit" class="form-submit" name="addNewGame">Add new game</button>
+</form>
+</div>
+</body>
+</html>
